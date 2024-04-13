@@ -83,23 +83,23 @@
                                 <!-- Comany Name and Firm type -->
                                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
                                     <div class="col-span-2">
-                                        <label for="companyName"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Company
-                                            Name</label>
-                                        <input type="text" name="companyName" id="companyName"
-                                            class="input input-bordered w-full">
+                                        <label for="companyName" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Company Name</label>
+                                        <input type="text" wire:model="companyName" name="companyName" id="companyName" class="input input-bordered w-full">
+                                        <span class="text-red-500">
+                                            @error('companyName')
+                                            {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
 
                                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
                                     <div>
-                                        <label for="firmType"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Type of
+                                        <label for="firmType" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Type of
                                             firm/Company</label>
 
                                         <div wire:ignore>
-                                            <select class="select select-bordered w-full" id="firmType"
-                                                wire:model="firmType" name="firmType" required>
+                                            <select class="select select-bordered w-full" id="firmType" wire:model="firmType" name="firmType" required>
                                                 <option value="">Select type of firm</option>
                                                 <option value="public limited">Public Limited</option>
                                                 <option value="private limited">Private Limited</option>
@@ -117,9 +117,7 @@
                                     </div>
 
                                     <div>
-                                        <label for="businessType"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Business
-                                            Type</label>
+                                        <label for="businessType" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Business Type</label>
 
                                         <div wire:ignore>
                                             <select class="select select-bordered w-full" id="businessType"
@@ -146,13 +144,10 @@
                                     </div>
 
                                     <div>
-                                        <label for="unitServing"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Unit
-                                            Serving</label>
+                                        <label for="unitServing" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Unit Serving</label>
 
                                         <div wire:ignore>
-                                            <select class="select select-bordered w-full" id="unitServing"
-                                                wire:model="unitServing" name="unitServing" required>
+                                            <select class="select select-bordered w-full" id="unitServing" wire:model="unitServing" name="unitServing" required>
                                                 <option value="">Select unit</option>
                                                 <option value="tennur">Tennur</option>
                                                 <option value="cantonment">Cantonment</option>
@@ -179,31 +174,30 @@
 
                                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
                                     <div class="col-span-2">
-                                        <label for="email"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Email</label>
-                                        <input type="email" name="email" id="email" autocomplete="email"
-                                            class="input input-bordered w-full">
+                                        <label for="email" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Email</label>
+                                        <input type="email" wire:model="email" name="email" id="email" class="input input-bordered w-full">
                                         <span class="text-red-500">
-                                            @error('companyName')
+                                            @error('email')
                                             {{ $message }}
                                             @enderror
                                         </span>
                                     </div>
 
                                     <div>
-                                        <label for="landlineNumber"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Landline
-                                            Number</label>
-                                        <input type="text" name="landlineNumber" id="landlineNumber"
-                                            class="input input-bordered w-full">
+                                        <label for="landlineNumber" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Landline Number</label>
+                                        <input type="text" wire:model="landlineNumber" name="landlineNumber" id="landlineNumber" class="input input-bordered w-full">
+                                        <span class="text-red-500">
+                                            @error('landlineNumber')
+                                            {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
 
                                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
 
                                     <div>
-                                        <label for="gstRegistered"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">
+                                        <label for="gstRegistered" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">
                                             GST Registered
                                         </label>
                                         <div>
@@ -224,11 +218,10 @@
                                     </div>
 
                                     <div>
-                                        <label for="gstNumber"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">
+                                        <label for="gstNumber" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">
                                             GST Number
                                         </label>
-                                        <input type="text" name="gstNumber" id="gstNumber"
+                                        <input type="text" wire:model="gstNumber" name="gstNumber" id="gstNumber"
                                             class="input input-bordered w-full">
                                         <div class="text-red-600">
                                             @error('gstNumber')
@@ -238,14 +231,12 @@
                                     </div>
 
                                     <div>
-                                        <label for="gstPayerStatus"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">
+                                        <label for="gstPayerStatus" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">
                                             GST Payer Status
                                         </label>
 
                                         <div wire:ignore>
-                                            <select class="select select-bordered w-full" id="gstPayerStatus"
-                                                wire:model="gstPayerStatus" name="gstPayerStatus" required>
+                                            <select class="select select-bordered w-full" id="gstPayerStatus" wire:model="gstPayerStatus" name="gstPayerStatus" required>
                                                 <option value="">Select Payer Status</option>
                                                 <option value="public limited">Regular Tax Payable Vendor</option>
                                                 <option value="private limited">Composition Scheme Vendor</option>
@@ -264,8 +255,7 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
 
                                     <div>
-                                        <label for="msmeRegistered"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">
+                                        <label for="msmeRegistered" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">
                                             MSME Registered
                                         </label>
                                         <div>
@@ -286,12 +276,10 @@
                                     </div>
 
                                     <div>
-                                        <label for="drugLicenseNumber"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">
+                                        <label for="drugLicenseNumber" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">
                                             Drug License Number
                                         </label>
-                                        <input type="text" name="drugLicenseNumber" id="drugLicenseNumber"
-                                            class="input input-bordered w-full">
+                                        <input type="text" wire:model="drugLicenseNumber" name="drugLicenseNumber" id="drugLicenseNumber" class="input input-bordered w-full">
                                         <div class="text-red-600">
                                             @error('drugLicenseNumber')
                                             {{ $message }}
@@ -304,8 +292,7 @@
                                             class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">
                                             PAN Number
                                         </label>
-                                        <input type="text" name="panNumber" id="panNumber"
-                                            class="input input-bordered w-full">
+                                        <input type="text" wire:model="panNumber" name="panNumber" id="panNumber" class="input input-bordered w-full">
                                         <div class="text-red-600">
                                             @error('panNumber')
                                             {{ $message }}
@@ -383,17 +370,13 @@
                             <div class="grid gap-4 lg:gap-6">
                                 <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 lg:gap-6">
                                     <div>
-                                        <label for="pincode"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Pincode</label>
-                                        <input type="text" name="pincode" id="pincode"
-                                            class="input input-bordered w-full">
+                                        <label for="pincode" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Pincode</label>
+                                        <input type="number" wire:model="pincode" name="pincode" id="pincode" class="input input-bordered w-full">
                                     </div>
 
                                     <div>
-                                        <label for="city"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">City</label>
-                                        <input type="city" name="city" id="city" autocomplete="city"
-                                            class="input input-bordered w-full">
+                                        <label for="city" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">City</label>
+                                        <input type="city" wire:model="city" name="city" id="city" class="input input-bordered w-full">
                                         <span class="text-red-500">
                                             @error('city')
                                             {{ $message }}
@@ -402,16 +385,18 @@
                                     </div>
 
                                     <div>
-                                        <label for="state"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">State</label>
-                                        <input type="text" name="state" id="state" class="input input-bordered w-full">
+                                        <label for="state" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">State</label>
+                                        <input type="text" wire:model="state" name="state" id="state" class="input input-bordered w-full">
+                                        <span class="text-red-500">
+                                            @error('state')
+                                            {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
 
                                     <div>
-                                        <label for="country"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Country</label>
-                                        <input type="country" name="country" id="country" autocomplete="country"
-                                            class="input input-bordered w-full">
+                                        <label for="country" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Country</label>
+                                        <input type="country" wire:model="country" name="country" id="country" class="input input-bordered w-full">
                                         <span class="text-red-500">
                                             @error('country')
                                             {{ $message }}
@@ -421,19 +406,19 @@
                                 </div>
 
                                 <div>
-                                    <label for="address"
-                                        class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Address</label>
-                                    <textarea id="address" name="address" rows="4"
-                                        class="textarea textarea-bordered w-full"></textarea>
+                                    <label for="address" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Address</label>
+                                    <textarea id="address" wire:model="address" name="address" rows="4" class="textarea textarea-bordered w-full"></textarea>
+                                    <span class="text-red-500">
+                                        @error('address')
+                                        {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
 
                                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
                                     <div>
-                                        <label for="contactPerson"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Contact
-                                            Person</label>
-                                        <input type="text" name="contactPerson" id="contactPerson"
-                                            autocomplete="contactPerson" class="input input-bordered w-full">
+                                        <label for="contactPerson" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Contact Person</label>
+                                        <input type="text" wire:model="contactPerson" name="contactPerson" id="contactPerson" class="input input-bordered w-full">
                                         <span class="text-red-500">
                                             @error('contactPerson')
                                             {{ $message }}
@@ -442,18 +427,23 @@
                                     </div>
 
                                     <div>
-                                        <label for="mobileNumber"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Mobile
-                                            Number</label>
-                                        <input type="number" name="mobileNumber" id="mobileNumber"
-                                            class="input input-bordered w-full">
+                                        <label for="mobileNumber" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Mobile Number</label>
+                                        <input type="number" wire:model="mobileNumber" name="mobileNumber" id="mobileNumber" class="input input-bordered w-full">
+                                        <span class="text-red-500">
+                                            @error('mobileNumber')
+                                            {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
+
                                     <div>
-                                        <label for="contactEmail"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Contact
-                                            Email</label>
-                                        <input type="text" name="contactEmail" id="contactEmail"
-                                            class="input input-bordered w-full">
+                                        <label for="contactEmail" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Contact Email</label>
+                                        <input type="email" wire:model="contactEmail" name="contactEmail" id="contactEmail" class="input input-bordered w-full">
+                                        <span class="text-red-500">
+                                            @error('contactEmail')
+                                            {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -524,10 +514,8 @@
                             <div class="grid gap-4 lg:gap-6">
                                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
                                     <div>
-                                        <label for="bankName"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Name of the bank</label>
-                                        <input type="text" name="bankName" id="bankName"
-                                            autocomplete="bankName" class="input input-bordered w-full">
+                                        <label for="bankName" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Name of the bank</label>
+                                        <input type="text" wire:model="bankName" name="bankName" id="bankName" class="input input-bordered w-full">
                                         <span class="text-red-500">
                                             @error('bankName')
                                             {{ $message }}
@@ -536,10 +524,8 @@
                                     </div>
 
                                     <div>
-                                        <label for="branch"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Branch</label>
-                                        <input type="text" name="branch" id="branch"
-                                            autocomplete="branch" class="input input-bordered w-full">
+                                        <label for="branch" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Branch</label>
+                                        <input type="text" wire:model="branch" name="branch" id="branch" class="input input-bordered w-full">
                                         <span class="text-red-500">
                                             @error('branch')
                                             {{ $message }}
@@ -548,10 +534,8 @@
                                     </div>
 
                                     <div>
-                                        <label for="ifscCode"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">IFSC Code</label>
-                                        <input type="number" name="ifscCode" id="ifscCode"
-                                            autocomplete="ifscCode" class="input input-bordered w-full">
+                                        <label for="ifscCode" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">IFSC Code</label>
+                                        <input type="text" wire:model="ifscCode" name="ifscCode" id="ifscCode" class="input input-bordered w-full">
                                         <span class="text-red-500">
                                             @error('ifscCode')
                                             {{ $message }}
@@ -560,10 +544,8 @@
                                     </div>
 
                                     <div>
-                                        <label for="cityTown"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">City/Town</label>
-                                        <input type="text" name="cityTown" id="cityTown"
-                                            autocomplete="cityTown" class="input input-bordered w-full">
+                                        <label for="cityTown" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">City/Town</label>
+                                        <input type="text" wire:model="cityTown" name="cityTown" id="cityTown" class="input input-bordered w-full">
                                         <span class="text-red-500">
                                             @error('cityTown')
                                             {{ $message }}
@@ -572,10 +554,8 @@
                                     </div>
 
                                     <div>
-                                        <label for="accountHolderName"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Account Holder Name</label>
-                                        <input type="text" name="accountHolderName" id="accountHolderName"
-                                            autocomplete="accountHolderName" class="input input-bordered w-full">
+                                        <label for="accountHolderName" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Account Holder Name</label>
+                                        <input type="text" wire:model="accountHolderName" name="accountHolderName" id="accountHolderName" class="input input-bordered w-full">
                                         <span class="text-red-500">
                                             @error('accountHolderName')
                                             {{ $message }}
@@ -584,10 +564,8 @@
                                     </div>
 
                                     <div>
-                                        <label for="accountNumber"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Account Number</label>
-                                        <input type="number" name="accountNumber" id="accountNumber"
-                                            autocomplete="accountNumber" class="input input-bordered w-full">
+                                        <label for="accountNumber" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Account Number</label>
+                                        <input type="number" wire:model="accountNumber" name="accountNumber" id="accountNumber" class="input input-bordered w-full">
                                         <span class="text-red-500">
                                             @error('accountNumber')
                                             {{ $message }}
@@ -597,12 +575,9 @@
 
                                     
                                     <div>
-                                        <label for="accountType"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Account Type</label>
-
+                                        <label for="accountType" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Account Type</label>
                                         <div wire:ignore>
-                                            <select class="select select-bordered w-full" id="accountType"
-                                                wire:model="accountType" name="accountType" required>
+                                            <select class="select select-bordered w-full" id="accountType" wire:model="accountType" name="accountType" required>
                                                 <option value="">Select account type</option>
                                                 <option value="current account">Current Account</option>
                                                 <option value="savings account">Savings Account</option>
@@ -685,12 +660,9 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-1 gap-4 lg:gap-6">
 
                                     <div>
-                                        <label for="vendorCategory"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Vendor Category</label>
-
+                                        <label for="vendorCategory" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Vendor Category</label>
                                         <div wire:ignore>
-                                            <select class="select select-bordered w-full" id="vendorCategory"
-                                                wire:model="vendorCategory" name="vendorCategory" required>
+                                            <select class="select select-bordered w-full" id="vendorCategory" wire:model="vendorCategory" name="vendorCategory" required>
                                                 <option value="">Select vendor category</option>
                                                 <option value="pharma items">Pharma Items</option>
                                                 <option value="clinial consumables">Clinial Consumables</option>
@@ -710,9 +682,8 @@
                                     </div>
 
                                     <div>
-                                        <label for="productsServices"
-                                            class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Product Services</label>
-                                        <textarea id="productsServices" name="productsServices" rows="4" class="textarea textarea-bordered w-full"></textarea>
+                                        <label for="productsServices" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Product Services</label>
+                                        <textarea wire:model="productsServices" id="productsServices" name="productsServices" rows="3" class="textarea textarea-bordered w-full"></textarea>
                                         <span class="text-red-500">
                                             @error('productsServices')
                                             {{ $message }}
@@ -722,7 +693,7 @@
 
                                     <div>
                                         <label for="documentListing" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">list of documents if any for the above</label>
-                                        <input type="file" name="documentListing" id="documentListing" class="file-input file-input-bordered w-full" />
+                                        <input type="file" wire:model="documentListing" name="documentListing" id="documentListing" class="file-input file-input-bordered w-full" multiple/>
                                         <span class="text-red-500">
                                             @error('documentListing')
                                             {{ $message }}
@@ -732,7 +703,7 @@
 
                                     <div>
                                         <label class="block mb-2 text-sm text-gray-700 font-medium dark:text-white" for="declaration">
-                                            <input wire:model="declaration" class="checkbox" type="checkbox" id="declaration">
+                                            <input wire:model="declaration" class="checkbox checkbox-success [--chkfg:white]" type="checkbox" id="declaration">
                                             <span class="text-sm text-gray-700 font-medium dark:text-white">
                                                 You must agree with our <a href="#" class="text-blue-500">Terms and Conditions</a>
                                             </span>
@@ -751,22 +722,19 @@
                         @endif
 
                         @if ($currentStep == 2 || $currentStep == 3 || $currentStep == 4)
-                        <button type="button" wire:click="decreaseStep()"
-                            class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                        <button type="button" wire:click="decreaseStep()" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
                             Back
                         </button>
                         @endif
 
                         @if ($currentStep == 1 || $currentStep == 2 || $currentStep == 3)
-                        <button type="button" wire:click="increaseStep()"
-                            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                        <button type="button" wire:click="increaseStep()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                             Next
                         </button>
                         @endif
 
                         @if ($currentStep == 4)
-                        <button type="submit"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                             Submit
                         </button>
                         @endif
