@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="flex-initial w-30">
-                        <a href="#" class="btn">
+                        <a href="{{ route('manage-vendors') }}" class="btn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-plus-lg" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
