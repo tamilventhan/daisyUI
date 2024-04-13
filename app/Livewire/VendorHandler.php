@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Vendor;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -64,18 +65,42 @@ class VendorHandler extends Component
 
         if($this->currentStep == 1){
             $this->validate([
-                'companyName'=>'nullable',
-            ]);
+                'companyName' => 'required|string',
+                'firmType' => 'required|string',
+                'businessType' => 'required|string',
+                'unitServing' => 'required|string',
+                'email' => 'required|email',
+                'landlineNumber' => 'nullable|string',
+                'gstRegistered' => 'required|boolean',
+                'gstNumber' => 'nullable|string',
+                'gstPayerStatus' => 'nullable|string',
+                'msmeRegistered' => 'required|boolean',
+                'drugLicenseNumber' => 'nullable|string',
+                'panNumber' => 'nullable|string',
+            ]);            
         }
         elseif($this->currentStep == 2){
-              $this->validate([
-                'address'=>'nullable',
-              ]);
+            $this->validate([
+                'pincode' => 'required|string',
+                'city' => 'nullable|string',
+                'state' => 'nullable|string',
+                'country' => 'nullable|string',
+                'address' => 'nullable|string',
+                'contactPerson' => 'required|string',
+                'mobileNumber' => 'nullable|string',
+                'contactEmail' => 'nullable|email',
+            ]);            
         }
         elseif($this->currentStep == 3){
-              $this->validate([
-                'bankName'=>'nullable',
-              ]);
+            $this->validate([
+                'bankName' => 'required|string',
+                'branch' => 'nullable|string',
+                'ifscCode' => 'nullable|string',
+                'cityTown' => 'nullable|string',
+                'accountHolderName' => 'required|string',
+                'accountNumber' => 'required|string',
+                'accountType' => 'nullable|string',
+            ]);            
         }
     }
 
@@ -95,17 +120,66 @@ class VendorHandler extends Component
 
         if($this->currentStep == 4){
             $this->validate([
-                'vendorCategory' => 'nullable',
+                'vendorCategory' => 'required|string',
+                'productsServices' => 'nullable|string',
+                'documentListing' => 'nullable|array',
+                'declaration' => 'required|boolean',
             ]);
-        }
 
-        $data = ['companyName'=>$this->companyName.' '.$this->contactPerson,'mobileNumber'=>$this->mobileNumber];
+            try {
+
+                $data = [
+                    'companyName' => $this->companyName,
+                    'email' => $this->email,
+                    'address' => $this->address,
+                    'city' => $this->city,
+                    'state' => $this->state,
+                    'country' => $this->country,
+                    'pincode' => $this->pincode,
+                    'firmType' => $this->firmType,
+                    'businessType' => $this->businessType,
+                    'contactPerson' => $this->contactPerson,
+                    'mobileNumber' => $this->mobileNumber,
+                    'landlineNumber' => $this->landlineNumber,
+                    'contactEmail' => $this->contactEmail,
+                    'unitServing' => $this->unitServing,
+                    'gstRegistered' => $this->gstRegistered,
+                    'gstNumber' => $this->gstNumber,
+                    'gstPayerStatus' => $this->gstPayerStatus,
+                    'panNumber' => $this->panNumber,
+                    'msmeRegistered' => $this->msmeRegistered,
+                    'drugLicenseNumber' => $this->drugLicenseNumber,
+                    'bankName' => $this->bankName,
+                    'branch' => $this->branch,
+                    'cityTown' => $this->cityTown,
+                    'accountHolderName' => $this->accountHolderName,
+                    'accountNumber' => $this->accountNumber,
+                    'accountType' => $this->accountType,
+                    'vendorCategory' => $this->vendorCategory,
+                    'productsServices' => $this->productsServices,
+                    'documentListing' => $this->documentListing,
+                    'declaration' => $this->declaration,
+                    // Add more fields as needed
+                ];
+
+                Vendor::create($data);
+
+                //send success message
+                session()->flash('success', 'Vendor registered successfully.');
+
+            } catch (\Throwable $th) {
+                //throw error
+                session()->flash('error', 'Error occurred while registering vendor. Please try again.');
+                throw $th;
+            }
+            
+        }
         
   }
 
     public function render()
     {
-        
+
         return view('livewire.vendor-handler')->layout('layouts.app');
     }
 
